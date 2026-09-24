@@ -2,23 +2,26 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>TAMMY · 全息閃卡</title>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.0.0/dist/model-viewer.min.js"></script>
 <style>
-  body{margin:0;min-height:100dvh;background:#000;color:#dbe3ea;
-       font-family:-apple-system,sans-serif;display:flex;flex-direction:column;
-       align-items:center;justify-content:center;gap:28px}
-  h1{font-size:22px;letter-spacing:.3em;font-weight:600}
-  a.ar{display:block;padding:18px 44px;border-radius:14px;font-size:19px;
-       color:#ffe9b0;text-decoration:none;
-       background:linear-gradient(135deg,#3a2c10,#8a6a1f);
-       border:1px solid #c9a24b;box-shadow:0 0 40px #c9a24b44}
-  small{color:#7c8797}
+  html,body{margin:0;height:100%;background:#000;color:#dbe3ea;
+    font-family:-apple-system,sans-serif}
+  model-viewer{width:100%;height:100%;height:100dvh;--poster-color:#000;--progress-bar-color:#c9a24b}
+  .hint{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom));left:0;right:0;
+    text-align:center;color:#8a94a5;font-size:14px;pointer-events:none;
+    text-shadow:0 1px 3px #000}
 </style>
 </head>
 <body>
-  <h1>點此領取你的專屬卡片</h1>
-  <a class="ar" rel="ar" href="./Tammy.usdz">▶ 轉動卡片</a>
-  <small>iPhone / iPad Safari 點擊即開（AR Quick Look）</small>
+<model-viewer src="./Tammy.usdz"
+  camera-controls auto-rotate rotation-per-second="25deg"
+  interaction-prompt="none" shadow-intensity="0"
+  exposure="1.2" camera-orbit="0deg 90deg 300mm"
+  min-camera-orbit="-Infinity 90deg 200mm" max-camera-orbit="Infinity 90deg 600mm"
+  ar ar-modes="web-xl scene-viewer quick-look" ar-scale="match-height">
+</model-viewer>
+<div class="hint">拖曳轉動卡片 · 雙指縮放</div>
 </body>
 </html>
