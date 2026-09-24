@@ -8,20 +8,24 @@
 <style>
   html,body{margin:0;height:100%;background:#000;color:#dbe3ea;
     font-family:-apple-system,sans-serif}
-  model-viewer{width:100%;height:100%;height:100dvh;--poster-color:#000;--progress-bar-color:#c9a24b}
+  model-viewer{width:100%;height:100dvh;--poster-color:#000;--progress-bar-color:#c9a24b;background:#000}
   .hint{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom));left:0;right:0;
-    text-align:center;color:#8a94a5;font-size:14px;pointer-events:none;
-    text-shadow:0 1px 3px #000}
+    text-align:center;color:#8a94a5;font-size:14px;pointer-events:none}
 </style>
 </head>
 <body>
-<model-viewer src="./Tammy.usdz"
+<model-viewer src="./Tammy.glb" alt="TAMMY 閃卡"
   camera-controls auto-rotate rotation-per-second="25deg"
   interaction-prompt="none" shadow-intensity="0"
-  exposure="1.2" camera-orbit="0deg 90deg 300mm"
-  min-camera-orbit="-Infinity 90deg 200mm" max-camera-orbit="Infinity 90deg 600mm"
-  ar ar-modes="web-xl scene-viewer quick-look" ar-scale="match-height">
+  environment-image="neutral" exposure="1.2"
+  camera-orbit="0deg 80deg 300mm"
+  min-camera-orbit="-Infinity 10deg 150mm" max-camera-orbit="Infinity 170deg 600mm">
 </model-viewer>
 <div class="hint">拖曳轉動卡片 · 雙指縮放</div>
+<script>
+const v=document.querySelector('model-viewer');
+v.addEventListener('load',()=>console.log('MODEL LOAD PASS'));
+v.addEventListener('error',e=>console.error('MODEL LOAD FAIL',e));
+</script>
 </body>
 </html>
