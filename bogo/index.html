@@ -12,8 +12,6 @@
   .poster{position:fixed;inset:0;width:100%;object-fit:contain;background:#000;
     transition:opacity .35s ease;pointer-events:none}
   .poster.hide{opacity:0}
-  .hint{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom));left:0;right:0;
-    text-align:center;color:#8a94a5;font-size:14px;pointer-events:none}
 </style>
 </head>
 <body>
@@ -25,7 +23,6 @@
   camera-orbit="0deg 80deg 250mm"
   min-camera-orbit="-Infinity 10deg 140mm" max-camera-orbit="Infinity 170deg 600mm">
 </model-viewer>
-<div class="hint">拖曳轉動卡片 · 雙指縮放</div>
 <script>
 const v=document.querySelector('model-viewer'),p=document.getElementById('poster');
 v.addEventListener('load',()=>{console.log('MODEL LOAD PASS');requestAnimationFrame(()=>p.classList.add('hide'))});
